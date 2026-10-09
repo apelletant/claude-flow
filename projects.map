@@ -1,0 +1,16 @@
+# Mapping from git remote to flow project.
+#
+# Read at step 0 of /ticket, before falling back to the folder name.
+# The key is a substring of the origin remote URL: it survives the protocol
+# (ssh or https), the local path, and multiple clones of the same repo -- two
+# copies of the same repo therefore share the same context, which is what we
+# want, whereas the folder name would have split them or, worse, merged two
+# repos with the same name.
+#
+# A project can span several repos: a ticket often touches a backend, a
+# frontend and a shared library in the same move, with types that must change
+# together.
+#
+# <remote substring>                  <project>
+# my-org/backend.git                  my-product
+# my-org/frontend.git                 my-product

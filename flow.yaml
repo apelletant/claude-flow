@@ -1,0 +1,23 @@
+# Which platforms the flow talks to. Read by the architect at step 0.
+#
+# tracker:   where tickets come from    -> trackers/<name>.md
+# code_host: where PRs / MRs are opened -> code-hosts/<name>.md
+# GitHub and GitLab can play both roles, but nothing forces them to: Jira tickets
+# with GitHub PRs is a common setup.
+#
+# To add a platform, copy trackers/_template.md or code-hosts/_template.md.
+
+tracker: jira          # jira | github | gitlab
+code_host: github      # github | gitlab
+
+# Platform settings, read by the matching adapter. Fill in only what you use.
+jira:
+  url: https://your-company.atlassian.net
+  token_env: JIRA_TOKEN            # env var holding the API token, never the token itself
+  acceptance_criteria_field: ""    # e.g. customfield_10042, if not in the description
+
+# Per-project overrides, keyed by the project name from projects.map.
+projects:
+  # my-oss-lib:
+  #   tracker: github
+  #   code_host: github
